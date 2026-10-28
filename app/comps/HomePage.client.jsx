@@ -30,7 +30,7 @@ const HomePageClient = () => {
 
     useEffect(() => {
         if (API_URL) {
-            axios.get(`${API_URL}/v1/home`).then(response => {
+            axios.get(`${API_URL}/v1/home/`).then(response => {
                 setHomePageData(response.data)
                 setCategoryTabs(response.data.subfactors)
                 setCurrentTab(response.data.subfactors[0])
