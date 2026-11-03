@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Search from "../comps/Search";
+import Search from "../../components/home-page-ui/Search";
 import { getDataForTable } from "@/lib/actions"; // import data fetching function
 import { DataTable } from "../comps/DataTable";
 import { columns } from "../artifact/[id]/columns";

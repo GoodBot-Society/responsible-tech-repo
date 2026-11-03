@@ -26,6 +26,39 @@ module.exports = {
         openSans: ["Open Sans"],
       },
       colors: {
+        'goodbot-primary': {
+          DEFAULT: '#0c4a6e',
+          light: '#0284c7',
+          dark: '#075985',
+        },
+        'goodbot-background': {
+          DEFAULT: '#ecfcff',
+          light: '#ffffff',
+          starryNightBlack: '#242424'
+        },
+        'goodbot-text': {
+          DEFAULT: '#242424',
+          secondary: '#757575',
+          dark: '#000000',
+          disabled: '#b3b3b3',
+        },
+        'goodbot-gray': {
+          light: "#f5f5f5",
+          DEFAULT: "#d9d9d9",
+          medium: "#979797",
+          dark: "#757575",
+        },
+        'goodbot-button': {
+          primary: {
+            DEFAULT: '#a3e2ec',
+            hover: '#95dbe6',
+          },
+          secondary: {
+            DEFAULT: '#ffffff',
+            hover: '#f4f4f5',
+          },
+        },
+
         goodbot: {
           primary: {
             lightgrey: "rgb(241 241 242 / 40%)",
