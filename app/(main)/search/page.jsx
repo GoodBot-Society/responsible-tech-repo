@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Search from "@/components/home-page-ui/Search";
-import SearchCard from "../comps/SearchCard";
+import SearchCard from "@/app/comps/SearchCard";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Pagination from "../comps/Pagination";
-import SearchCardSkeleton from "../comps/SearchCardSkeletonLoading.client";
+import Pagination from "../../comps/Pagination";
+import SearchCardSkeleton from "../../comps/SearchCardSkeletonLoading.client";
 
 export default function SearchPage() {
     const router = useRouter();

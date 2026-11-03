@@ -1,5 +1,5 @@
-import "./globals.css";
-import HomePageClient from "./comps/HomePage.client";
+import "../globals.css";
+import HomePageClient from "../comps/HomePage.client";
 import { cardsHome } from "@/lib/actions";
 
 export const revalidate = 3600; // revalidate at most every hour
