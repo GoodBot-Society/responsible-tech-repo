@@ -17,7 +17,7 @@ const TopVoiceCardList = ({ data }) => {
     return (
         <div className="flex flex-col gap-4 items-start w-full">
             <h3 className="font-bold text-base uppercase text-goodbot-text-dark">Experts</h3>
-            <div className="w-full grid grid-cols-4 grid-rows-1 gap-4">
+            <div className="w-full grid grid-cols-1 min-[640px]:grid-cols-2 md:grid-cols-4 gap-4">
                 {data.slice(0, visibleCount).map(topVoice => (
                     <TopVoiceCard key={topVoice.id} topVoice={topVoice} />
                 ))}

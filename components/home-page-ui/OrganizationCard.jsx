@@ -10,8 +10,7 @@ const OrganizationCard = ({ organization }) => {
   };
   return (
     <div
-      className="flex flex-col gap-2 bg-goodbot-background-light w-full p-4 rounded-lg border border-goodbot-gray-medium cursor-pointer"
-      onClick={() => setIsOpen(true)}
+className="flex flex-col gap-2 bg-goodbot-background-light w-full p-3 sm:p-4 rounded-lg border border-goodbot-gray-medium cursor-pointer"      onClick={() => setIsOpen(true)}
     >
       <div className="flex items-start justify-between  w-full ">
         <Image

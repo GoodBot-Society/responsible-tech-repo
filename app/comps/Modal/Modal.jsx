@@ -1,5 +1,7 @@
+
 import { React, useEffect } from "react";
 import Image from "next/image";
+import { X } from "lucide-react";
 const Modal = ({ isOpen, onClose, data, isTopVoice }) => {
   const ModalData = isTopVoice
     ? {
@@ -47,66 +49,60 @@ const Modal = ({ isOpen, onClose, data, isTopVoice }) => {
       onClick={handleBackdropClick}
     >
       <div
-        className="bg-white border border-gray-200 shadow-sm rounded-2xl w-[682px] p-8 flex flex-col gap-6 relative max-h-[90vh] overflow-y-auto"
+        className="bg-white border border-gray-200 shadow-sm rounded-2xl w-[calc(100%-2rem)] sm:w-[682px] p-4 sm:p-8 flex flex-col gap-6 relative max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="absolute right-6 top-6 z-10">
+        <div className="absolute right-3 top-3 z-10 sm:right-6 sm:top-6">
           <button
-            className="w-6 h-7 bg-white text-black border-none text-lg font-bold flex items-center justify-center transform rotate-90 cursor-pointer"
+            className="h-9 w-9 rounded-full border border-slate-200 bg-white text-slate-600 flex items-center justify-center cursor-pointer hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2"
             onClick={onClose}
+            aria-label="Close"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14.7803 6.28033C15.0732 5.98744 15.0732 5.51256 14.7803 5.21967C14.4874 4.92678 14.0126 4.92678 13.7197 5.21967L10 8.93934L6.28033 5.21967C5.98744 4.92678 5.51256 4.92678 5.21967 5.21967C4.92678 5.51256 4.92678 5.98744 5.21967 6.28033L8.93934 10L5.21967 13.7197C4.92678 14.0126 4.92678 14.4874 5.21967 14.7803C5.51256 15.0732 5.98744 15.0732 6.28033 14.7803L10 11.0607L13.7197 14.7803C14.0126 15.0732 14.4874 15.0732 14.7803 14.7803C15.0732 14.4874 15.0732 14.0126 14.7803 13.7197L11.0607 10L14.7803 6.28033Z"
-                fill="#242424"
-              />
-            </svg>
+            <X size={20} strokeWidth={2} />
           </button>
         </div>
 
-        <div className="flex items-center gap-4 px-8">
+        <div className="flex items-center gap-4 border-b border-slate-100 pb-4 pr-10 sm:items-center sm:gap-6 sm:border-0 sm:pb-0 sm:pl-8 sm:pr-14">
           {ModalData?.logo && (
-            <Image
-              src={ModalData.logo}
-              alt={`${ModalData.name}'s logo`}
-              height={500}
-              width={500}
-              className="h-10 w-fit"
-            />
+            <div className="h-16 w-16 shrink-0">
+              <Image
+                src={ModalData.logo}
+                alt={`${ModalData.name}'s logo`}
+                height={500}
+                width={500}
+                className="h-full w-full object-contain"
+              />
+            </div>
           )}
           {isTopVoice && !ModalData.logo && (
-            <div className="font-bold bg-gray-300 rounded-full p-4">
-              <p className="font-large font-bold">{logoIntials}</p>
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-300 font-bold">
+              {logoIntials}
             </div>
           )}
-          <div className="flex flex-col">
+          <div className="min-w-0 flex-1">
             {ModalData?.name && (
-              <div className="text-xl font-bold tracking-wide text-slate-900 ">
+              <h2 className="break-words text-sm min-[375px]:text-base font-bold leading-snug text-slate-900 sm:text-xl">
                 {ModalData.name}
-              </div>
+              </h2>
             )}
-            <div className="font-poppins font-medium text-base leading-6 flex items-center tracking-[0.5px]  text-[#020817] order-1 flex-none grow-0 whitespace-wrap">
-              {ModalData.title}
-            </div>
+            {isTopVoice && ModalData.title && (
+              <p className="mt-1 font-poppins text-sm text-slate-500 sm:text-base">
+                {ModalData.title}
+              </p>
+            )}
           </div>
           {!isTopVoice && (
-            <div className="bg-sky-200 text-black text-sm px-4 py-2 rounded-md">
+            <span className="ml-auto hidden shrink-0 bg-sky-200 text-black text-sm px-4 py-2 rounded-md sm:block">
               Nonprofit
-            </div>
+            </span>
           )}
         </div>
 
-        <div className="px-8 flex flex-col gap-4">
-          <h3 className="text-base font-bold uppercase tracking-wide text-slate-900">
+        <div className="px-0 sm:px-8 flex flex-col gap-3 sm:gap-4">
+          <h3 className="text-xs sm:text-base font-bold uppercase tracking-wider text-slate-700 sm:text-slate-900">
             About
           </h3>
-          <p className="text-base text-black">
+          <p className="text-sm leading-6 text-slate-700 sm:text-base sm:text-black">
             {ModalData?.about?.trim() ? ModalData.about : "Not yet available."}
           </p>
           <p className="text-base italic text-slate-900 font-semibold">
@@ -114,7 +110,7 @@ const Modal = ({ isOpen, onClose, data, isTopVoice }) => {
             {ModalData.email}
           </p>
 
-          <div className="relative w-full h-12 flex items-center gap-10">
+          <div className="relative w-full h-12 flex items-center gap-3 sm:gap-10">
             {ModalData.linkedin != null && (
               <div className="w-11 h-11 relative">
                 <a
@@ -168,6 +164,11 @@ const Modal = ({ isOpen, onClose, data, isTopVoice }) => {
                 </a>
               </div>
             )}
+            {!isTopVoice && (
+              <span className="ml-auto shrink-0 bg-sky-200 text-black text-sm px-4 py-2 rounded-md sm:hidden">
+                Nonprofit
+              </span>
+            )}
           </div>
         </div>
 
@@ -183,7 +184,7 @@ const Modal = ({ isOpen, onClose, data, isTopVoice }) => {
               >
                 <path
                   fill="black"
-                  d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 4.25A4.25 4.25 0 1 1 7.75 12 4.25 4.25 0 0 1 12 7.75Zm0 1.5A2.75 2.75 0 1 0 14.75 12 2.75 2.75 0 0 0 12 9.25Zm4.75-2.25a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z"
+                  d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 4.25A4.25 4.25 0 1 1 7.75 12 4.25 4.25 0 0 1 12 7.75Zm0 1.5A2.75 2.75 0 1 0 14.75 12 2.75 2.75 0 0 0 12 9.25Zm4.75-2.25a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z"
                 />
               </svg>
             </div>
@@ -211,7 +212,7 @@ const Modal = ({ isOpen, onClose, data, isTopVoice }) => {
 
         {ModalData.youtube != null && (
           <div className="w-11 h-11 relative">
-            <div className="w-full h-full border-2  border-gray-300 rounded-full bg-white  flex items-center justify-center">
+            <div className="w-full h-full border-2 border-gray-300 rounded-full bg-white  flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -222,7 +223,7 @@ const Modal = ({ isOpen, onClose, data, isTopVoice }) => {
                 <path fill="black" d="M10 15.5l6-3.5-6-3.5v7z" />
                 <path
                   fill="black"
-                  d="M21.8 8s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9-2.7-.2-6.7-.2-6.7-.2h-.1s-4 0-6.7.2c-.4 0-1.2.1-1.9.9-.6.6-.8 2-.8 2S3 9.6 3 11.2v1.6c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.7.8 1.6.7 2 .8 1.5.1 6.5.2 6.5.2s4 0 6.7-.2c.4 0 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.6c0-1.6-.2-3.2-.2-3.2z"
+                  d="M21.8 8s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9-2.7-.2-6.7-.2-6.7-.2h-.1s-4 0-6.7.2c-.4 0-1.2.1-1.9.9-.6-.6-.8-2-.8-2S3 9.6 3 11.2v1.6c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.7.8 1.6.7 2 .8 1.5.1 6.5.2 6.5.2s4 0 6.7-.2c.4 0 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.6c0-1.6-.2-3.2-.2-3.2z"
                 />
               </svg>
             </div>
@@ -247,10 +248,10 @@ const Modal = ({ isOpen, onClose, data, isTopVoice }) => {
                       data.publication.title || "Untitled"
                     }`
                   : data.recommendation
-                  ? `Title of Recommendation: ${
-                      data.recommendation.title || "Untitled"
-                    }`
-                  : "No Title"}
+                    ? `Title of Recommendation: ${
+                        data.recommendation.title || "Untitled"
+                      }`
+                    : "No Title"}
               </a>
 
               <div className="text-sm font-medium text-slate-500">

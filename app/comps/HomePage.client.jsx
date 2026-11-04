@@ -68,27 +68,26 @@ const HomePageClient = () => {
         homePageData && Object.keys(homePageData).length === 0 ? (
             <HomePageSkeletonLoading />
         ) : (
-            <section className="container relative flex flex-col gap-10">
+            <section className="container relative flex flex-col gap-6 sm:gap-10">
                 <Hero />
                 <Search onSubmit={handleSearchSubmit} value={searchTerm} onChange={setSearchTerm} />
                 <hr />
                 <section className="flex flex-col gap-10">
-                    <div className="grid grid-cols-6 gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
                         {categoryTabs && (
                             categoryTabs.map((category, index) => (
                                 <CategoryTab data={category} key={category.id} onClick={() => handleCategoryChange(index)} isSelected={currentTab?.id === category.id} />
                             ))
                         )}
                     </div>
-                    <div className="flex gap-x-4 overflow-auto subcategory-tab-container">
+                    <div className=" grid grid-cols-1 md:flex gap-x-4 overflow-auto subcategory-tab-container">
                         {subCategoryTabs.map((subCategory, index) => (
                             <SubCategoryTab key={subCategory.id} label={subCategory.name} onClick={() => handleSubCategoryChange(index)} isSelected={currentSubCategory?.id === subCategory.id} />
                         ))}
                     </div>
 
                     {!nonProfitsData && !topVoicesData ? (<DataMissingCard title="Community Resources" />) : (
-                        <div className="flex flex-col gap-10 items-start w-full py-10 px-8 bg-goodbot-background rounded-3xl font-poppins">
-                            <h2 className="font-bold text-2xl text-goodbot-primary tracking-wide">Community Resources</h2>
+                        <div className="flex flex-col gap-10 items-start w-full py-10 px-4 sm:px-8 bg-goodbot-background rounded-3xl font-poppins">                            <h2 className="font-bold text-2xl text-goodbot-primary tracking-wide">Community Resources</h2>
                             <OrganizationCardList data={nonProfitsData} />
                             <TopVoiceCardList data={topVoicesData} />
                         </div>
