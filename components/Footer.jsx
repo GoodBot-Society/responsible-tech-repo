@@ -4,16 +4,16 @@ import Image from "next/image";
 
 const Footer = () => {
     return (
-        <footer className="mt-28 bg-goodbot-background-starryNightBlack py-[100px] font-poppins">
+        <footer className="mt-28 bg-goodbot-background-starryNightBlack py-[100px] font-poppins max-[767px]:mt-12 max-[767px]:pt-12 max-[767px]:pb-8">
             <div className="container flex flex-col justify-center items-center border-b border-white border-opacity-20">
-                <p className="text-sm text-white uppercase tracking-[2.8px] text-opacity-60 mb-4">Join us in advancing responsible tech everywhere.</p>
-                <p className="text-[50px] text-white font-bold">Request More Information</p>
-                <p className="max-w-[430px] text-lg text-opacity-80 text-white text-center mb-[45px]">GoodBot is a catalyst for research and practice in innovative technology governance</p>
-                <Link className="min-w-[224px] py-[18px] bg-goodbot-primary text-base text-white rounded-[30px] mb-[50px] flex justify-center items-center hover:bg-goodbot-primary-light transition-colors duration-200" href="mailto:hello@goodbot.ca">Contact Us</Link>
-                <p className="text-sm text-white text-opacity-80 mb-[48px]">© GoodBot Responsible Repo</p>
+                <p className="text-sm text-white uppercase tracking-[2.8px] text-opacity-60 mb-4 max-[479px]:max-w-[280px] min-[480px]:max-[767px]:max-w-[600px] max-[767px]:text-center max-[767px]:text-xs max-[767px]:leading-5 max-[767px]:tracking-[1.5px] max-[767px]:mb-3">Join us in advancing responsible tech everywhere.</p>
+                <p className="text-[50px] text-white font-bold max-[479px]:max-w-[290px] max-[479px]:text-[28px] min-[480px]:max-[767px]:max-w-[560px] min-[480px]:max-[767px]:text-[32px] max-[767px]:leading-[1.15] max-[767px]:text-center max-[767px]:mb-3">Request More Information</p>
+                <p className="max-w-[430px] text-lg text-opacity-80 text-white text-center mb-[45px] max-[479px]:max-w-[280px] max-[479px]:text-sm min-[480px]:max-[767px]:text-base max-[767px]:leading-6 max-[767px]:mb-7">GoodBot is a catalyst for research and practice in innovative technology governance</p>
+                <Link className="min-w-[224px] py-[18px] bg-goodbot-primary text-base text-white rounded-[30px] mb-[50px] flex justify-center items-center hover:bg-goodbot-primary-light transition-colors duration-200 max-[767px]:min-w-[170px] max-[767px]:min-h-11 max-[767px]:px-6 max-[767px]:py-2 max-[767px]:text-sm max-[767px]:mb-8" href="mailto:hello@goodbot.ca">Contact Us</Link>
+                <p className="text-sm text-white text-opacity-80 mb-[48px] max-[767px]:text-xs max-[767px]:mb-8">© GoodBot Responsible Repo</p>
             </div>
-            <div className="container flex items-center w-full justify-between mt-[48px]">
-                <Image src='/svg/logo-white.svg' alt="GoodBot Logo" width={179.26} height={42} />
+            <div className="container flex items-center w-full justify-between mt-[48px] max-[767px]:mt-6">
+                <Image src='/svg/logo-white.svg' alt="GoodBot Logo" width={179.26} height={42} className="max-[767px]:w-28 max-[767px]:h-auto" />
                 <div className="flex items-center gap-4">
                     <Link className="border-2 w-[45px] h-[45px] border-white border-opacity-25 rounded-full flex items-center justify-center" href='https://www.linkedin.com/company/gogoodbot/' target="_blank" rel="noopener noreferrer">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -11,7 +11,7 @@ const Search = ({ onChange, onSubmit, value }) => {
   }
 
   return (
-    <form className="flex w-full gap-2" onSubmit={handleSubmit}>
+    <form className="flex w-full flex-col gap-2 min-[640px]:flex-row" onSubmit={handleSubmit}>
       <input onChange={(e) => {
         onChange(e.target.value)
       }} value={value} type="text" placeholder="Search Goodbot ex. Digital Charter Canada" aria-label="Search Goodbot" className="w-full shadow-sm border border-zinc-400 rounded-md px-3 py-1.5 text-sm" />
