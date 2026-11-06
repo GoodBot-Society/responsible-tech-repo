@@ -15,12 +15,12 @@ const Header = () => {
           className="h-auto w-20 min-[375px]:w-24 sm:w-[169px]"
         />
       </Link>
-      <h1 className="w-24 min-[375px]:w-28 text-[13px] min-[375px]:text-sm leading-tight font-bold font-poppins text-center text-goodbot-primary-starryNightBlack sm:w-auto sm:text-base">
+      <h1 className="ml-5 sm:ml-0 w-24 min-[375px]:w-28 text-[13px] min-[375px]:text-sm leading-tight font-bold font-poppins text-center text-goodbot-primary-starryNightBlack sm:w-auto sm:text-base">
         Responsible Tech Repo
       </h1>
       <Link
         href="/login"
-        className="justify-self-end whitespace-nowrap rounded-full border border-goodbot-primary-light px-3 py-2 text-xs font-semibold font-poppins text-goodbot-primary-light min-[375px]:px-3 min-[375px]:text-xs sm:px-4 sm:py-2 sm:text-base"
+        className="justify-self-end whitespace-nowrap rounded-full border border-goodbot-primary-light px-3 py-2 text-xs font-semibold font-poppins text-goodbot-primary-light min-[375px]:px-3 min-[375px]:text-xs sm:px-4 sm:py-2 sm:text-base invisible"
       >
         {/* @todo: When the login page is created, remove the 'invisible' class */}
         login

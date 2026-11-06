@@ -22,7 +22,7 @@ const OrganizationCardList = ({ data }) => {
     return (
         <div className="flex flex-col gap-4 items-start w-full">
             <h3 className="font-bold text-base uppercase tracking-wide text-goodbot-text-dark">Organizations</h3>
-            <div className="w-full grid grid-cols-1 min-[640px]:grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="w-full grid grid-cols-1 min-[640px]:grid-cols-2 md:grid-cols-4 gap-4 max-[1059px]:auto-rows-fr">
                 {data.slice(0, visibleCount).map((organization, index) => (
                     <OrganizationCard organization={organization} key={index} />
                 ))}
